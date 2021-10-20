@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Css/Stilos2.css">
+    <script src="Js/Scripts.js"></script>
+</head>
+
+<body>
+    <div id="Contenedor" class="Contenido">
+        <header id="Header" class="Header">Formulario de usuarios</header>
+        <section id="Section" class="Section">
+            <br>
+            <div class="Celdas">Digite el nombre</div>
+            <div class="Celdas"><input type="text" name="nom" id="nom"></div>
+
+            <div class="Celdas">Digite la edad</div>
+            <div class="Celdas"><input type="text" name="edad" id="edad"></div>
+
+            <div class="Celdas">seleccione el sexo</div>
+            <div class="Celdas"><select name="sexo" id="sexo">
+                    <option value=""></option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+
+                </select>
+            </div>
+            <button class="Boton" onclick="verificar()">Verificar datos</button>
+            <div id="Mensajes" class="Mensajes">
+
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
