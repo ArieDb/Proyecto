@@ -1,25 +1,54 @@
-function verificar() {
-    var sexo = document.getElementById("sexo").value;
-    var nom = document.getElementById("nom").value;
-    var edad = document.getElementById("edad").value;
+function guardar()
+{   
+  var request = new Request('https://localhost:44315/api/Values', {
+        method: 'Post',
+        
+       headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({
+        cedula: document.getElementById("ced").value,
+        nombre: document.getElementById("nom").value,
+        edad: parseInt(document.getElementById("edad").value),
+        
+     //   surname: "Swift"
+    })
+    });
 
-    var suma = parseInt(edad) + 10;
-    alert(suma)
-
-
-    mensaje("su nombre es: " + nom + " y su sexo es :" + sexo + "  su edad es: " + edad)
+    fetch(request)
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        alert(data);
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
 }
 
-function mensaje(texto) {
-    //DHTML
-    divmensajes = document.getElementById("Mensajes");
-    textomensaje = document.createTextNode(texto);
+function eliminar()
+{   
+    cedula=document.getElementById("ced").value;
+  var request = new Request('https://localhost:44315/api/Values/'+ced, {
+        method: 'Delete',
+        
+       headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
 
-    divnuevo = document.createElement("div");
-    divnuevo.setAttribute("class", "Fondomensaje");
-    //divnuevo.setAttribute("id","unico");
+    });
 
-    divnuevo.appendChild(textomensaje);
-    divmensajes.appendChild(divnuevo);
-
+    fetch(request)
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        alert(data);
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
 }
