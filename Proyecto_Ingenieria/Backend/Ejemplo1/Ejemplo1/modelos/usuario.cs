@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Newtonsoft.Json;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,17 +44,43 @@ namespace Ejemplo1.modelos
             try
             {
                 conectar.conectarbd();
-                String sql = "delete from usuarios where cedula= '" + this.cedula + "';";
+                String sql = "delete from usuarios where cedula='" + this.cedula + "';";
                 new NpgsqlCommand(sql, conectar.getcone()).ExecuteNonQuery();
-                return "Datos Eliminados :(";
+                return "Datos Eliminados :(" + sql;
             }
             catch (Exception E)
             {
                 return "Error, verificar( o verificar la arquitectura)" + E;
             }
 
-
-
         }
+
+        public String buscar(Conexion conectar)
+        {
+            String Mensaje = "";
+            try
+            {
+                String sql = "select * from usuarios where cedula='" + this.cedula + "';";
+                var reader = new NpgsqlCommand(sql, conectar.getcone()).ExecuteReader();
+                while (reader.Read())
+                {
+                    this.cedula = reader.GetString(1);
+                    this.nombre = reader.GetString(2);
+                    this.edad = reader.GetInt32(3);
+                }
+                var Json = JsonConvert.SerializeObject(new { ced = this.cedula, nombre = this.nombre, edad = this.edad });
+                reader.Close();
+                return Json;
+            }
+            catch (Exception E)
+            {
+                Mensaje = "Error" + E;
+            }
+            return Mensaje;
+        }
+
+
+
+
     }
 }

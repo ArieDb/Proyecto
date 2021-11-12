@@ -30,7 +30,7 @@ function guardar()
 
 function eliminar()
 {   
-    cedula=document.getElementById("ced").value;
+    ced=document.getElementById("ced").value;
   var request = new Request('https://localhost:44315/api/Values/'+ced, {
         method: 'Delete',
         
@@ -47,6 +47,7 @@ function eliminar()
     })
     .then(function(data) {
         alert(data);
+        document.getElementById("ced").value="";
     })
     .catch(function(err) {
         console.error(err);
