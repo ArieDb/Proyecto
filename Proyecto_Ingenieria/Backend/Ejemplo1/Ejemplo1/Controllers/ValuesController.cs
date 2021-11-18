@@ -20,14 +20,14 @@ namespace Ejemplo1.Controllers
         [HttpGet]
         public String Get()
         {
-            return "Estoy utillizando get llegaste al back";
+            return "Estoy utillizando get llegaste al back por todos ";
         }
 
         // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{cedula}")]
+        public string Get(string cedula)
         {
-            return "value";
+            return "hola llegaste por cedula";
         }
 
         // POST api/<ValuesController>

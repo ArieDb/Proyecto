@@ -53,3 +53,32 @@ function eliminar()
         console.error(err);
     });
 }
+
+function consultar()
+{   
+    ced=document.getElementById("ced").value;
+    dir='https://localhost:44315/api/Values/';
+    if(ced != " ")
+    dir='https://localhost:44315/api/Values/'+ced;
+
+  var request = new Request(dir, {
+        method: 'Get',
+        
+       headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+
+    });
+
+    fetch(request)
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        alert(data);
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
+}

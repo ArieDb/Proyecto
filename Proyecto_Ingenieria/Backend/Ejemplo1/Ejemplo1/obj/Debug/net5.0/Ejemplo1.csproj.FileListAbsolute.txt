@@ -28,3 +28,4 @@ C:\Users\G4br1\Documents\REPOS\Proyecto\Proyecto_Ingenieria\Backend\Ejemplo1\Eje
 C:\Users\G4br1\Documents\REPOS\Proyecto\Proyecto_Ingenieria\Backend\Ejemplo1\Ejemplo1\obj\Debug\net5.0\Ejemplo1.genruntimeconfig.cache
 C:\Users\G4br1\Documents\REPOS\Proyecto\Proyecto_Ingenieria\Backend\Ejemplo1\Ejemplo1\bin\Debug\net5.0\Npgsql.dll
 C:\Users\G4br1\Documents\REPOS\Proyecto\Proyecto_Ingenieria\Backend\Ejemplo1\Ejemplo1\obj\Debug\net5.0\Ejemplo1.csproj.AssemblyReference.cache
+C:\Users\G4br1\Documents\REPOS\Proyecto\Proyecto_Ingenieria\Backend\Ejemplo1\Ejemplo1\bin\Debug\net5.0\Newtonsoft.Json.dll
