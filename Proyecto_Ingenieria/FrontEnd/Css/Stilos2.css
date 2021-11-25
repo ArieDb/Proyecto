@@ -61,6 +61,12 @@ background-color: #4fc3f7;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color:lightcoral;
   }
+  .cabecera{
+    display: inline-block;
+    width:33% ;
+    height: auto;
+    background-color: blueviolet;
+  }
 
 
 }

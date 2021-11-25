@@ -58,7 +58,7 @@ function consultar()
 {   
     ced=document.getElementById("ced").value;
     dir='https://localhost:44315/api/Values/';
-    if(ced != " ")
+    if(ced!= "")
     dir='https://localhost:44315/api/Values/'+ced;
 
   var request = new Request(dir, {
@@ -77,8 +77,39 @@ function consultar()
     })
     .then(function(data) {
         alert(data);
+        cabecera();
+
     })
     .catch(function(err) {
         console.error(err);
     });
+}
+
+function cabecera()
+{
+
+divmensajes=Document.getElementById("Mensajes");
+
+div1=document.createElement("div");
+div1.setArttribute("id","cabecera");
+div1.setArttribute("class","cabecera");
+texto=document.createTextNode("cedula");
+div1.appendChild(texto);
+
+div2=document.createElement("div");
+div2.setArttribute("id","cabecera");
+div2.setArttribute("class","cabecera");
+texto=document.createTextNode("nombre");
+div2.appendChild(texto);
+
+div3=document.createElement("div");
+div3.setArttribute("id","cabecera");
+div3.setArttribute("class","cabecera");
+texto=document.createTextNode("edad");
+div3.appendChild(texto);
+
+divmensajes.appendChild(div1);
+divmensajes.appendChild(div2);
+divmensajes.appendChild(div3);
+
 }

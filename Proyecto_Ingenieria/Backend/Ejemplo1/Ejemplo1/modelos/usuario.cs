@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Dynamic;
 
 namespace Ejemplo1.modelos
 {
@@ -79,6 +80,47 @@ namespace Ejemplo1.modelos
             return Mensaje;
         }
 
+
+        public String listar(Conexion conectar)
+        {
+
+            String Mensaje = "";
+            try
+            {
+                conectar.conectarbd();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+
+                String sql = "select * from usuarios ";
+                if (this.cedula != "")
+                    sql = "select * from usuarios where cedula='" + this.cedula + "';";
+
+
+                var reader = new NpgsqlCommand(sql, conectar.getcone()).ExecuteReader();
+                var todoslosusers = new List<dynamic>();
+
+                while (reader.Read())
+                {
+                    dynamic usuarios = new ExpandoObject();
+
+                    usuarios.cedula = reader.GetString(0);
+                    usuarios.nombre = reader.GetString(1);
+                    usuarios.edad = reader.GetInt32(2);
+
+                    todoslosusers.Add(usuarios);
+
+                }
+                string Json = JsonConvert.SerializeObject(todoslosusers);
+                reader.Close();
+                return Json;
+
+            }
+            catch (Exception E)
+            {
+                Mensaje = "Error" + E;
+            }
+            return Mensaje;
+
+        }
 
 
 

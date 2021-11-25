@@ -20,14 +20,21 @@ namespace Ejemplo1.Controllers
         [HttpGet]
         public String Get()
         {
-            return "Estoy utillizando get llegaste al back por todos ";
+
+            Conexion conectar = new Conexion();
+            usuario u = new usuario("","",0);
+            String datos = u.listar(conectar);
+            return datos;
         }
 
         // GET api/<ValuesController>/5
         [HttpGet("{cedula}")]
         public string Get(string cedula)
         {
-            return "hola llegaste por cedula";
+            Conexion conectar = new Conexion();
+            usuario u = new usuario(cedula, "", 0);
+            String datos = u.listar(conectar);
+            return datos;
         }
 
         // POST api/<ValuesController>
